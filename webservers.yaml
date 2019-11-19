@@ -1,0 +1,21 @@
+---
+- hosts: webservers
+  vars:
+    folder_name: htdocs
+  tasks:
+  - name: ensure that nginx is the latest version
+    apt:
+      name: nginx
+      state: latest
+    become: yes
+  - name: Make sure nginx is running
+    service:
+      name: nginx
+      state: started
+    become: yes
+  - name: Create folder for nginx html docs
+    file:
+      path: /etc/nginx/{{ folder_name }}
+      state: directory
+      mode: 0777
+    become: yes

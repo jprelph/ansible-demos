@@ -1,0 +1,11 @@
+---
+- name: Ensure that postgresql is the latest version
+  apt:
+    name: postgresql
+    state: latest
+  become: yes
+- name: Ensure that postgresql is running
+  service:
+    name: postgresql
+    state: started
+  become: yes

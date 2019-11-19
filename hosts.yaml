@@ -1,0 +1,21 @@
+all:
+  hosts:
+  vars:
+    ansible_user: admin
+    ansible_ssh_private_key_file: "~/.ssh/devops-academy.pem"
+  children:
+    webservers:
+      hosts:
+        ec2-54-194-137-231.eu-west-1.compute.amazonaws.com:
+      vars:
+        purpose: "Webserving"
+        port: "80"
+    dbservers:
+      hosts:
+        ec2-54-154-151-104.eu-west-1.compute.amazonaws.com:
+      vars:
+        purpose: "Databasing"
+        port: "5432"
+    tomcatservers:
+      hosts:
+        ec2-34-253-192-99.eu-west-1.compute.amazonaws.com:

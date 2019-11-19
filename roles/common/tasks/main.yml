@@ -1,0 +1,18 @@
+- name: ensure that jq is the latest version
+  apt:
+    name: jq
+    state: latest
+  become: yes
+- name: ensure that curl is the latest version
+  apt:
+    name: curl
+    state: latest
+  become: yes
+- name: hostname in template
+  template:
+    src: hostname.j2
+    dest: /hostname.txt
+    owner: admin
+    group: admin
+    mode: 0644
+  become: yes

@@ -1,0 +1,11 @@
+---
+- name: Ensure that nginx is the latest version
+  apt:
+    name: nginx
+    state: latest
+  become: yes
+- name: Ensure that nginx is running
+  service:
+    name: nginx
+    state: started
+  become: yes

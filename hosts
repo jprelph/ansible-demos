@@ -1,0 +1,16 @@
+ec2-34-249-173-119.eu-west-1.compute.amazonaws.com
+
+[webservers]
+ec2-63-32-93-216.eu-west-1.compute.amazonaws.com
+ec2-34-243-158-80.eu-west-1.compute.amazonaws.com
+
+[dbservers]
+ec2-52-209-197-6.eu-west-1.compute.amazonaws.com
+ec2-34-244-197-255.eu-west-1.compute.amazonaws.com
+
+[all:vars]
+ansible_user=admin
+ansible_ssh_private_key_file="~/.ssh/devops-academy.pem"
+
+[webservers:vars]
+web_port=80

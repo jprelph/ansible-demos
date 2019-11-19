@@ -1,0 +1,25 @@
+---
+- hosts: webservers
+  vars:
+    cloud: "aws"
+  tasks:
+  - name: Install test template
+    template:
+      src: test.j2
+      dest: /test.txt
+      owner: admin
+      group: admin
+      mode: 0644
+    become: yes
+- hosts: dbservers
+  vars:
+    cloud: "gcp"
+  tasks:
+  - name: Install test template
+    template:
+      src: test.j2
+      dest: /test.txt
+      owner: admin
+      group: admin
+      mode: 0644
+    become: yes
